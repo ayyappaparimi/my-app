@@ -1,1 +1,6 @@
 /Users/ayyappaparimi/Documents/studies/Virtual Internship/my-app/src/main/java/com/mycompany/app/MyAppApplication.java
+/Users/ayyappaparimi/Documents/studies/Virtual Internship/my-app/src/main/java/com/mycompany/app/component/DatabaseConduit.java
+/Users/ayyappaparimi/Documents/studies/Virtual Internship/my-app/src/main/java/com/mycompany/app/entity/UserRecord.java
+/Users/ayyappaparimi/Documents/studies/Virtual Internship/my-app/src/main/java/com/mycompany/app/foundation/Balance.java
+/Users/ayyappaparimi/Documents/studies/Virtual Internship/my-app/src/main/java/com/mycompany/app/foundation/Transaction.java
+/Users/ayyappaparimi/Documents/studies/Virtual Internship/my-app/src/main/java/com/mycompany/app/repository/UserRepository.java

@@ -1,1 +1,6 @@
+com/mycompany/app/component/DatabaseConduit.class
+com/mycompany/app/entity/UserRecord.class
+com/mycompany/app/foundation/Transaction.class
+com/mycompany/app/foundation/Balance.class
 com/mycompany/app/MyAppApplication.class
+com/mycompany/app/repository/UserRepository.class
