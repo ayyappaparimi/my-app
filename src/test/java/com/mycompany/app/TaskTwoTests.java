@@ -10,7 +10,12 @@ import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
+//@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
+@EmbeddedKafka(
+        partitions = 1,
+        topics = {"trader-updates"},
+        brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"}
+)
 class TaskTwoTests {
   static final Logger logger = LoggerFactory.getLogger(TaskTwoTests.class);
 
@@ -31,7 +36,7 @@ class TaskTwoTests {
     logger.info("---------------");
     logger.info("----------------");
     logger.info("----------------");
-    logger.info("use your debugger to waatch for the incoming transactions");
+    logger.info("use your debugger to watch for the incoming transactions");
     logger.info("Kill the test once you find the answer");
     while(true) {
       Thread.sleep(20000);

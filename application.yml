@@ -1,2 +1,17 @@
 general:
   kafka-topic: trader-updates
+
+spring:
+  kafka:
+    consumer:
+      group-id: my-app
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.mycompany.app.foundation"
+        spring.json.value.default.type: com.mycompany.app.foundation.Transaction
+
+      producer:
+        key-serializer: org.apache.kafka.common.serializaztion.StringSerializer
+        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
