@@ -76,10 +76,10 @@ public class TransactionService {
         // Save transaction
         TransactionRecord record = new TransactionRecord(sender.getId(), recipient.getId(), transactionAmount);
         transactionRepository.save(record);
-        userRepository.findAll().forEach(user -> {
-            if (user.getName().equals("waldorf")) {
-                System.out.println("Waldorf balance = " + user.getBalance());
-            }
-        });
+//        userRepository.findAll().forEach(user -> {
+//            if (user.getName().equals("waldorf")) {
+//                System.out.println("Waldorf balance = " + user.getBalance());
+//            }
+//        });
     }
 }
