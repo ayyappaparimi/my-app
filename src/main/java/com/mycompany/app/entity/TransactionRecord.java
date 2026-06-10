@@ -1,0 +1,23 @@
+package com.mycompany.app.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+public class TransactionRecord {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private long senderId;
+    private long recipientId;
+    private float transactionAmount;
+
+    public TransactionRecord(long senderId, long recipientId, float transactionAmount) {
+        this.senderId = senderId;
+        this.recipientId = recipientId;
+        this.transactionAmount = transactionAmount;
+    }
+}
