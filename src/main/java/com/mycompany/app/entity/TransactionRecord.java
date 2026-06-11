@@ -14,10 +14,12 @@ public class TransactionRecord {
     private long senderId;
     private long recipientId;
     private float transactionAmount;
+    private float incentiveAmount;
 
-    public TransactionRecord(long senderId, long recipientId, float transactionAmount) {
+    public TransactionRecord(long senderId, long recipientId, float transactionAmount, float incentiveAmount) {
         this.senderId = senderId;
         this.recipientId = recipientId;
         this.transactionAmount = transactionAmount;
+        this.incentiveAmount = incentiveAmount;
     }
 }

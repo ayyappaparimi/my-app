@@ -6,6 +6,7 @@ import com.mycompany.app.foundation.Transaction;
 import com.mycompany.app.repository.TransactionRepository;
 import com.mycompany.app.repository.UserRepository;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,6 +16,9 @@ public class TransactionService {
 
     private final UserRepository userRepository;
     private final TransactionRepository transactionRepository;
+
+    @Autowired
+    private IncentiveService incentiveService;
 
     // Adding repository to constructor
     public TransactionService(UserRepository userRepository, TransactionRepository transactionRepository) {
@@ -65,16 +69,19 @@ public class TransactionService {
             return;
         }
 
+        // Call Incentive API
+        float incentiveAmount = incentiveService.fetchIncentive(transaction);
+
         // Updating the Balance of sender and recipient
         sender.setBalance(sender.getBalance()-transactionAmount);
-        recipient.setBalance(recipient.getBalance()+transactionAmount);
+        recipient.setBalance(recipient.getBalance()+transactionAmount+incentiveAmount);
 
         //Saving info in DB
         userRepository.save(sender);
         userRepository.save(recipient);
 
         // Save transaction
-        TransactionRecord record = new TransactionRecord(sender.getId(), recipient.getId(), transactionAmount);
+        TransactionRecord record = new TransactionRecord(sender.getId(), recipient.getId(), transactionAmount, incentiveAmount);
         transactionRepository.save(record);
 //        userRepository.findAll().forEach(user -> {
 //            if (user.getName().equals("waldorf")) {
